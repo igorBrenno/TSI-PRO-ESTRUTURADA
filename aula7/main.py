@@ -83,8 +83,98 @@ def contagem_letras(coisa):
     maior = 0
     menor = 0
     for i in range(tm):
-        if ord(coisa[i]) >= 65 or ord(coisa[i]) <= 90:
+        if (ord(coisa[i]) >= 65 and ord(coisa[i]) <= 90):
             maior += 1
-        if ord(coisa[i]) >= 97 or ord(coisa[i]) <= 122:
+        if (ord(coisa[i]) >= 97 and ord(coisa[i]) <= 122):
             menor += 1
     return (maior, menor)
+
+# Crie uma função chamada len_custom que aceita um iterável (por exemplo, uma lista ou uma string) como argumento e retorna o
+# número de elementos no iterável. Ela deve ter o mesmo comportamento que a função embutida len().
+
+def len_custom(coisa):
+    contador = 0
+    for i in coisa:
+        contador += 1
+    return contador
+
+# Crie uma função chamada sum_custom que aceita uma lista de números como argumento e retorna a soma de todos os números na lista.
+# Ela deve ter o mesmo comportamento que a função embutida sum().
+
+def sum_custom(coisa):
+    contador = 0
+    for i in coisa:
+        contador += i
+    return contador
+
+# Crie uma função chamada max_custom que aceita uma lista de números como argumento e retorna o maior número na lista. Ela deve ter o
+# mesmo comportamento que a função embutida max().
+
+def max_custom(coisa):
+    if coisa == []:
+        maior = None
+    maior = coisa[0]
+    tm = len(coisa)
+    for i in range(tm):
+        if coisa[i] > maior:
+            maior = coisa[i]
+    return maior
+
+# Crie uma função que aceita *args e retorna a soma de todos os números passados como argumentos.
+
+def aceitaArgs(*args):
+    soma = 0 
+    for i in args:
+        soma += i
+    return soma
+
+print(aceitaArgs(1, 2, 3, 4))
+
+# Escreva uma função que recebe *args e retorna o número de argumentos passados.
+
+def argumentoPassado(*args):
+    contador = 0
+    for i in args:
+        contador += 1
+    return contador
+
+print(argumentoPassado(1, 4, 5, 7, 9))
+
+# Considerando a PEP 257 que trata da convensão de docstrings em python, selecione as 3 primeiras funções desta lista e crie a documentação.
+
+def argumentoPassado(*args):
+    """
+    ## Uma função que calcula a quantidade de elementos passados para a função
+    - A função irá receber uma tupla de valores que vai passar por um loop for, que vai contar quantos valores foram passado
+    """
+
+
+    contador = 0
+    for i in args:
+        contador += 1
+    return contador
+
+print(argumentoPassado(1, 4, 5, 7, 9))
+
+# Considere a função a seguir e responda: Por que o valor da variável 'temperatura' não foi alterada? De que forma podemos
+#  alterar o código para que esta variável seja modificada?
+
+temperatura = 30
+def ligar_ar():
+    temperatura = 20
+
+ligar_ar()
+print(temperatura)
+
+# A função filter é uma função que aceita uma outra função como argumento e um iterável (*args). Ela filtra todos os valores
+#  que são False a partir da primeira função passada, retornando uma lista de valores que retornaram True. Crie um filtro que
+#  recebe uma lista de números e retorna os pares.
+
+def funcaoPares(*args):
+    
+    return list(filter(lambda i : i % 2 == 0, args))
+print(funcaoPares(1, 2 , 4, 5, 7, 9 , 10))
+
+# A função map é uma função que aceita uma outra função como argumento e um iterável (*args). Ela retorna uma lista de valores
+#  que passaram pela primeira função passada como argumento. Crie uma lista que formata todos os nomes passados para um valor em maiúsculo.
+
